@@ -343,7 +343,9 @@ function draw() {
 
     ctx.fillStyle = "red";
     ctx.fillText("Game Over!", centerX, centerY);    // chữ đỏ
-
+    ctx.fillStyle = "white";
+    ctx.font = "bold 20px Courier";
+    ctx.fillText("Ctrl + R to start new game", centerX, screenHeight - 200);
     ctx.restore();
   }
 }
@@ -560,7 +562,7 @@ function spawnLoop() {
   }
 
   time++;
-  setTimeout(spawnLoop, 1000);
+  setTimeout(spawnLoop, 1250);
 }
 
 spawnLoop();
@@ -578,28 +580,7 @@ function items() {
       type: "bomb"
     };
     groundBombs.push(item);
-  } else {
-    item = {
-      x: Math.random() * mapWidth,
-      y: Math.random() * mapHeight,
-      size: 32,
-      collected: false,
-      type: "heart"
-    };
-    hearts.push(item);
-  }
-
-  setTimeout(() => {
-    if (!item.collected) {
-      if (item.type === "bomb") {
-        const index = groundBombs.indexOf(item);
-        if (index !== -1) groundBombs.splice(index, 1);
-      } else {
-        const index = hearts.indexOf(item);
-        if (index !== -1) hearts.splice(index, 1);
-      }
-    }
-  }, 10000);
+  } 15000);
 }
 
 
