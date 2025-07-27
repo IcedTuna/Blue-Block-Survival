@@ -562,7 +562,7 @@ function spawnLoop() {
   }
 
   time++;
-  setTimeout(spawnLoop, 1250);
+  setTimeout(spawnLoop, 1200);
 }
 
 spawnLoop();
@@ -580,7 +580,28 @@ function items() {
       type: "bomb"
     };
     groundBombs.push(item);
-  } 15000);
+  } else {
+    item = {
+      x: Math.random() * mapWidth,
+      y: Math.random() * mapHeight,
+      size: 32,
+      collected: false,
+      type: "heart"
+    };
+    hearts.push(item);
+  }
+
+  setTimeout(() => {
+    if (!item.collected) {
+      if (item.type === "bomb") {
+        const index = groundBombs.indexOf(item);
+        if (index !== -1) groundBombs.splice(index, 1);
+      } else {
+        const index = hearts.indexOf(item);
+        if (index !== -1) hearts.splice(index, 1);
+      }
+    }
+  }, 15000);
 }
 
 
