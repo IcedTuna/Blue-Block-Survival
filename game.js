@@ -519,7 +519,7 @@ function updateEnemyBullets(delta) {
 
     const dx = Math.abs(b.x - player.x);
     const dy = Math.abs(b.y - player.y);
-    if (dx < player.size / 2 && dy < player.size / 2) {
+    if (dx < player.size / 4 && dy < player.size / 4) {
       heart--;
       enemyBullets.splice(i, 1);
     }
@@ -537,7 +537,7 @@ function drawEnemyBullets(offsetX, offsetY) {
 
 
 function spawnRandomNpc() {
-  const type = Math.random() < 0.8 ? "melee" : "ranger";
+  const type = Math.random() < 0.9 ? "melee" : "ranger";
 
   const newNpc = {
     x: Math.random() * mapWidth + mapOffsetX,
