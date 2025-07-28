@@ -562,7 +562,7 @@ function spawnLoop() {
   }
 
   time++;
-  setTimeout(spawnLoop, 1200);
+  setTimeout(spawnLoop, 1500);
 }
 
 spawnLoop();
