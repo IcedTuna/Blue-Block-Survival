@@ -537,7 +537,7 @@ function drawEnemyBullets(offsetX, offsetY) {
 
 
 function spawnRandomNpc() {
-  const type = Math.random() < 0.9 ? "melee" : "ranger";
+  const type = Math.random() < 0.8 ? "melee" : "ranger";
 
   const newNpc = {
     x: Math.random() * mapWidth + mapOffsetX,
@@ -546,7 +546,7 @@ function spawnRandomNpc() {
     speed: type === "melee" ? 1 : 0.5,
     hp: 100,
     type,
-    shootCooldown: 0  // dùng cho ranger
+    shootCooldown: 0  
   };
 
   npcs.push(newNpc);
@@ -562,7 +562,7 @@ function spawnLoop() {
   }
 
   time++;
-  setTimeout(spawnLoop, 1500);
+  setTimeout(spawnLoop, 1200);
 }
 
 spawnLoop();
